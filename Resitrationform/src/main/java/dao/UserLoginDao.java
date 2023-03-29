@@ -54,7 +54,6 @@ public class UserLoginDao {
 	    	String sql = "select * from users";
 	    	stmt = connection.prepareStatement(sql);
 	    	ResultSet r =  stmt.executeQuery();
-	    	int id = 0;
 	    	users = new LinkedList<>();
 	    	while(r.next())
 	    	{
@@ -76,17 +75,16 @@ public class UserLoginDao {
 		
 	}
 
-	public User edituser(int id) {
+	public User editUser(int id) throws SQLException {
 		PreparedStatement stmt = null;
 		User user = new User();
 	     try {
-	    	String sql = "select * from users where id=?";
+	    	String sql = "SELECT * FROM users WHERE id=?";
 	    	stmt = connection.prepareStatement(sql);
-	    	stmt.setInt(0, id);
+	    	stmt.setInt(1, id);
 	    	ResultSet r =  stmt.executeQuery();
 	    	while(r.next())
 	    	{
-	    		
 	    		user.setId(r.getInt(1));
 	    		user.setName(r.getString(2));
 	    		user.setEmail(r.getString(3));

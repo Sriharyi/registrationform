@@ -32,7 +32,6 @@ public class RegisterAction extends HttpServlet {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			
 			e.printStackTrace();
 		}
         System.out.println(con);

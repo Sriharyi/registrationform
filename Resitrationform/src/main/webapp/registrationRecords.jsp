@@ -48,12 +48,12 @@
                         <td><%=u.getPhonenumber() %></td>
                         <td><span style="display:flex;justify-content:space-between;">
                         	<form action="EditAction" method="post">
-                       		<input type="hidden" value="<%=u.getId()%>">
-                       		<input type="submit" name="id" class="btn btn-primary" value="Edit">
+                       		<input type="hidden" name="id" value="<%=u.getId()%>">
+                       		<input type="submit"  class="btn btn-primary" value="Edit">
                        		</form > 
                        		<form action="DeleteAction" method="post">
-                       		<input type="hidden" value="<%=u.getId()%>">
-                       		<input type="submit" name="id" class="btn btn-danger" value="DELETE">
+                       		<input type="hidden" name="id" value="<%=u.getId()%>">
+                       		<input type="submit"  class="btn btn-danger" value="DELETE">
                        		</form>
                         </span> 
                        	</td>
