@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.User;
+import modal.User;
 
 public class UserLoginDao {
     
@@ -36,12 +36,7 @@ public class UserLoginDao {
             } else {
                 System.out.println("Insert successful, " + rowCount + " rows affected");
                 result=!result;
-            }
-            
-            
-            
-            
-            
+            }  
             
         }
             finally {
@@ -54,7 +49,6 @@ public class UserLoginDao {
 
 	public List<User> getUser() throws SQLException {
 		 PreparedStatement stmt = null;
-	     boolean result=false;
 	     List<User> users = null;
 	     try {
 	    	String sql = "select * from users";
@@ -65,13 +59,13 @@ public class UserLoginDao {
 	    	while(r.next())
 	    	{
 	    		User user = new User();
-	    		user.setId(id++);
-	    		user.setName(r.getString(1));
-	    		user.setEmail(r.getString(2));
-	    		user.setGender(r.getString(3));
-	    		user.setDateofbirth(r.getString(4));
-	    		user.setRole(r.getString(5));
-	    		user.setPhonenumber(r.getString(6));
+	    		user.setId(r.getInt(1));
+	    		user.setName(r.getString(2));
+	    		user.setEmail(r.getString(3));
+	    		user.setGender(r.getString(4));
+	    		user.setDateofbirth(r.getString(5));
+	    		user.setRole(r.getString(6));
+	    		user.setPhonenumber(r.getString(7));
 	    		users.add(user);
 	    	}
 	     }catch(Exception e)
@@ -80,5 +74,32 @@ public class UserLoginDao {
 	     }
 	     return users;
 		
+	}
+
+	public User edituser(int id) {
+		PreparedStatement stmt = null;
+		User user = new User();
+	     try {
+	    	String sql = "select * from users where id=?";
+	    	stmt = connection.prepareStatement(sql);
+	    	stmt.setInt(0, id);
+	    	ResultSet r =  stmt.executeQuery();
+	    	while(r.next())
+	    	{
+	    		
+	    		user.setId(r.getInt(1));
+	    		user.setName(r.getString(2));
+	    		user.setEmail(r.getString(3));
+	    		user.setGender(r.getString(4));
+	    		user.setDateofbirth(r.getString(5));
+	    		user.setRole(r.getString(6));
+	    		user.setPhonenumber(r.getString(7));
+	    		
+	    	}
+	     }catch(Exception e)
+	     {
+	    	 e.printStackTrace();
+	     }
+	     return user;
 	}
 }

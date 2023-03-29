@@ -1,4 +1,4 @@
-<%@page import="util.ConnectionUtil" import ="java.sql.*" import ="service.UserService" %>
+<%@page import="util.ConnectionUtil" import ="modal.User" import ="java.sql.*" import ="java.util.*"  import ="service.UserService" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -34,18 +34,34 @@
                 <%
                 	Connection con = ConnectionUtil.getConnection();
                 	UserService userservice = new UserService(con);
-                	
+                	List<User> list = userservice.getUsers();
+                	int i=1;
+                	for(User u :list){
+                		%>
+                		<tr>
+                        <th scope="row"><%= i++ %></th>
+                        <td><%=u.getName() %></td>
+                        <td><%=u.getEmail() %></td>
+                        <td><%=u.getGender() %></td>
+                        <td><%=u.getDateofbirth() %></td>
+                        <td><%=u.getRole() %></td>
+                        <td><%=u.getPhonenumber() %></td>
+                        <td><span style="display:flex;justify-content:space-between;">
+                        	<form action="EditAction" method="post">
+                       		<input type="hidden" value="<%=u.getId()%>">
+                       		<input type="submit" name="id" class="btn btn-primary" value="Edit">
+                       		</form > 
+                       		<form action="DeleteAction" method="post">
+                       		<input type="hidden" value="<%=u.getId()%>">
+                       		<input type="submit" name="id" class="btn btn-danger" value="DELETE">
+                       		</form>
+                        </span> 
+                       	</td>
+                      </tr>
+                		<%
+                	}
                 %>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><a href="">Edit</a> <a href="">Delete</a></td>    
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>

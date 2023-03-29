@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dao.UserLoginDao;
-import model.User;
+import modal.User;
 
 public class UserService {
     

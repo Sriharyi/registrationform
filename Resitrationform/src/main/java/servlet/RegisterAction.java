@@ -46,7 +46,7 @@ public class RegisterAction extends HttpServlet {
 		}
 		if(success)
 		{
-			response.sendRedirect("formdetail.html");
+			response.sendRedirect("registrationRecords.jsp");
 		}
     }
 }
