@@ -1,0 +1,127 @@
+*{
+    box-sizing: border-box;
+}
+body
+{
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #2e06bd;
+    margin: 0;
+}
+.container{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+    max-width: 100%;
+    width: 800px;
+}
+.container .header{
+    background-color: #f1f1f1;
+    color: black;
+    padding: 20px 40px;
+    border-bottom:1px solid #f0f0f0;
+}
+.container h3{
+    text-align: center;
+    margin: 0;
+}
+form{
+    padding: 30px 40px;
+}
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom:20px;
+    position: relative;
+}
+.form-control label{
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.form-control input{
+    border:  2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+.form-control input:focus
+{
+    outline: none;
+    border: 2px dashed #2e06bd;
+}
+.form-control.success input{
+    border: 2px solid #2ecc71;
+}
+.form-control.error input{
+    border: 2px solid red;
+}
+.form-control i{
+    visibility: hidden;
+    position: absolute; 
+    top: 40px;
+    right: 10px;
+}
+.form-control.success i.fa-check-circle{
+    visibility: visible;
+    color: #2ecc71;
+}
+.form-control.error i.fa-exclamation-circle{
+    visibility: visible;
+    color: red;
+}
+.form-control small{
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: red;
+}
+.form-control.error small{
+    visibility: visible;
+}
+.form button
+{
+    background-color: #2e06bd;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+.form-gender{
+    display: flex;
+    margin-bottom: 25px;
+}
+.form-control-div{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+.selectbox{
+    border:  2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+.selectbox:focus{
+    outline: none;
+    border: 2px dashed #2e06bd;
+   
+}
+.selectbox option{
+    color: #000;
+    font-size: 18px;
+    background-color:rgba(46, 6, 189,0.3);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
