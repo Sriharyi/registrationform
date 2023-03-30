@@ -14,30 +14,45 @@
 </head>
 <body>
 	  <main>
-        <div class="container">
-          <h1>Registeration Records</h1>
-          <div class="table-display">
-              <table class="table table-striped table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">DOB</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                <%
-                	Connection con = ConnectionUtil.getConnection();
-                	UserService userservice = new UserService(con);
-                	List<User> list = userservice.getUsers();
-                	int i=1;
-                	for(User u :list){
-                		%>
+      <div class="container">
+        <h1>Registeration Records</h1>
+        <div class="table-display">
+          <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Role</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            <%
+              Connection con = ConnectionUtil.getConnection();
+              UserService userservice = new UserService(con);
+              List<User> list = userservice.getUsers();
+              int i=1;
+              if(list.isEmpty())
+              {
+                %>
+               		<tr>
+                  <th scope="row"></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>No Records Found!</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  </tr> 
+                  <%
+              }else{
+                   for(User u :list){
+                      %>
                 		<tr>
                         <th scope="row"><%= i++ %></th>
                         <td><%=u.getName() %></td>
@@ -60,12 +75,15 @@
                       </tr>
                 		<%
                 	}
-                %>
-                  
+                   }
+                %> 
                 </tbody>
               </table>
+
             </div>
-            <a href="index.html"><button>Add New Records</button></a>
+            <div class="new-records">
+              <a href="index.html"><button class="button">Add New Records</button></a>
+             </div>
         </div>
     </main>
       <script src="table.js"></script>

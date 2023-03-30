@@ -5,20 +5,35 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background-color: white!important;
+    background-color: rgba(33, 116, 51, 0.486) !important;
 }
 .container h1{
     text-align: center;
-    color: white;
+    color: #2e06bd;
     margin-top: 20px;
 }
 .table-display{
     margin-top: 50px;
 }
 .new-records{
-    background-color: #2e06bd;
-    padding: 20px;
-    border-radius: 10px;
+   width: 100%;
+}
+.new-records  a{
+    text-decoration: none;
     color: white;
-    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.button{
+    background-color: #2e06bd;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: flex;
+    margin: 0 auto;
 }
